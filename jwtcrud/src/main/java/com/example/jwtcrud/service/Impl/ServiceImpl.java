@@ -18,25 +18,25 @@ import lombok.RequiredArgsConstructor;
 
 
 @Service
-public class TaskServiceImpl implements TaskService {
+public class ServiceImpl implements inventorService {
  
     @Autowired
-    private TaskRepository taskRepository;
+    private inventorRepository taskRepository;
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    public Task createTask(Task task) {
-        return taskRepository.save(task);
+    public inventor createinventor(inventor task) {
+        return inventorRepository.save(task);
     }
 
     @Override
-    public Task updateTask(Task task) {
-        if (task.getId() == null || !taskRepository.existsById(task.getId())) {
-            throw new EntityNotFoundException("Task not found with id: " + task.getId());
+    public inventor updateinventor(inventor inventor) {
+        if (inventor.getId() == null || !inventorRepository.existsById(inventor.getId())) {
+            throw new EntityNotFoundException("inventor not found with id: " + inventor.getId());
         }
-        return taskRepository.save(task);
+        return inventorRepository.save(inventor);
     }
 
     @Override
